@@ -1,0 +1,28 @@
+@if (this.results.items.length > 0) {
+    <table>
+        <thead>
+            <tr>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of this.results.items; track $index) {
+                <tr>
+                    <td>{{ item.year }}</td>
+                    <td>{{ item.valueEndOfYear| currency  }}</td>
+                    <td>{{ item.interest  | currency }}</td>
+                    <td>{{ item.totalInterest  | currency }}</td>
+                    <td>{{ item.totalAmountInvested  | currency }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@else {
+    <p class="center">Please enter some values and press "Calculate"</p>
+}
+
